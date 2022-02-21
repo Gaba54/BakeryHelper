@@ -28,7 +28,8 @@ namespace BakeryHelper
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-
+            services.AddDbContext<ProductsStorageContext>(
+                opt => opt.UseSqlServer(Configuration.GetConnectionString("ProductsConnectionString")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

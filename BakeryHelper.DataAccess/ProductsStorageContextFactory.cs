@@ -10,8 +10,13 @@ namespace BakeryHelper.DataAccess
     {
         public ProductsStorageContext CreateDbContext(string[] args)
         {
+            var currentDirectory = Directory.GetCurrentDirectory();
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(currentDirectory)
+                .AddJsonFile($"{currentDirectory}/../BakeryHelper/appsettings.json")
+                .Build();
             var optionsBuilder = new DbContextOptionsBuilder<ProductsStorageContext>();
-            optionsBuilder.UseSqlServer("Data Source=Localhost\\SQLEXPRESS;Initial Catalog=Products;Integrated Security=True");
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("ProductsConnectionString"));
             return new ProductsStorageContext(optionsBuilder.Options);
         }
     }
