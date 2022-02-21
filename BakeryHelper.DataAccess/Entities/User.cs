@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace BakeryHelper.DataAccess.Entities
 {
-    public class User
+    public class User : EntityBase
     {
-        public int Id { get; set; }
         public string Login { get; set; }
         private string Password { get; set; }
 
