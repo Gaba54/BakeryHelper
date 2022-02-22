@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BakeryHelper", "BakeryHelpe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BakeryHelper.DataAccess", "BakeryHelper.DataAccess\BakeryHelper.DataAccess.csproj", "{FEF3652A-132F-49E4-98C6-54A028CB6884}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BakeryHelper.Services", "BakeryHelper.Services\BakeryHelper.Services.csproj", "{17D80949-4F73-4BFA-BD4C-83B1F5120566}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BakeryHelper.Core", "BakeryHelper.Core\BakeryHelper.Core.csproj", "{14D88E22-5DC4-40C3-9927-6C37D48E4EDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +24,14 @@ Global
 		{FEF3652A-132F-49E4-98C6-54A028CB6884}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEF3652A-132F-49E4-98C6-54A028CB6884}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEF3652A-132F-49E4-98C6-54A028CB6884}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17D80949-4F73-4BFA-BD4C-83B1F5120566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17D80949-4F73-4BFA-BD4C-83B1F5120566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17D80949-4F73-4BFA-BD4C-83B1F5120566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17D80949-4F73-4BFA-BD4C-83B1F5120566}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14D88E22-5DC4-40C3-9927-6C37D48E4EDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14D88E22-5DC4-40C3-9927-6C37D48E4EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14D88E22-5DC4-40C3-9927-6C37D48E4EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14D88E22-5DC4-40C3-9927-6C37D48E4EDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
