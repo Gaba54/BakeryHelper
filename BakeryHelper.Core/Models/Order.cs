@@ -11,7 +11,7 @@ namespace BakeryHelper.Core.Models
 
         public int Id { get; set; }
         public string DayOfTheWeek { get; set; } 
-        public List<Products> ProductsFromCustomers { get; set; }
+        public List<Product> ProductsFromCustomers { get; set; }
         public List<Customers> Customers { get; set; }
 
     }
