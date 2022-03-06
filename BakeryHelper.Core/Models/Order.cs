@@ -12,7 +12,7 @@ namespace BakeryHelper.Core.Models
         public int Id { get; set; }
         public string DayOfTheWeek { get; set; } 
         public List<Product> ProductsFromCustomers { get; set; }
-        public List<Customers> Customers { get; set; }
+        public List<Customer> Customers { get; set; }
 
     }
 }

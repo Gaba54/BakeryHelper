@@ -10,7 +10,7 @@ namespace BakeryHelper.DataAccess.Entities
     {
         public string DayOfTheWeek { get; set; } //or int 
         public List<Product> ProductsFromCustomers { get; set; } //jako lista produktow bedacych na rozpisce
-        public List<Customers> Customers { get; set; }
+        public List<Customer> Customers { get; set; }
 
     }
 }

@@ -19,7 +19,7 @@ namespace BakeryHelper.DataAccess.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("BakeryHelper.DataAccess.Entities.Customers", b =>
+            modelBuilder.Entity("BakeryHelper.DataAccess.Entities.Customer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -57,14 +57,14 @@ namespace BakeryHelper.DataAccess.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("BakeryHelper.DataAccess.Entities.Products", b =>
+            modelBuilder.Entity("BakeryHelper.DataAccess.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int?>("CustomersId")
+                    b.Property<int?>("CustomerId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -78,7 +78,7 @@ namespace BakeryHelper.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomersId");
+                    b.HasIndex("CustomerId");
 
                     b.HasIndex("OrderId");
 
@@ -100,25 +100,25 @@ namespace BakeryHelper.DataAccess.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("BakeryHelper.DataAccess.Entities.Customers", b =>
+            modelBuilder.Entity("BakeryHelper.DataAccess.Entities.Customer", b =>
                 {
                     b.HasOne("BakeryHelper.DataAccess.Entities.Order", null)
                         .WithMany("Customers")
                         .HasForeignKey("OrderId");
                 });
 
-            modelBuilder.Entity("BakeryHelper.DataAccess.Entities.Products", b =>
+            modelBuilder.Entity("BakeryHelper.DataAccess.Entities.Product", b =>
                 {
-                    b.HasOne("BakeryHelper.DataAccess.Entities.Customers", null)
+                    b.HasOne("BakeryHelper.DataAccess.Entities.Customer", null)
                         .WithMany("Products")
-                        .HasForeignKey("CustomersId");
+                        .HasForeignKey("CustomerId");
 
                     b.HasOne("BakeryHelper.DataAccess.Entities.Order", null)
                         .WithMany("ProductsFromCustomers")
                         .HasForeignKey("OrderId");
                 });
 
-            modelBuilder.Entity("BakeryHelper.DataAccess.Entities.Customers", b =>
+            modelBuilder.Entity("BakeryHelper.DataAccess.Entities.Customer", b =>
                 {
                     b.Navigation("Products");
                 });

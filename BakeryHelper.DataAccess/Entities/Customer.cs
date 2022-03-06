@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BakeryHelper.DataAccess.Entities
 {
-    public class Customers : EntityBase
+    public class Customer : EntityBase
     {    
         public string Name { get; set; }
         public int NIP { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BakeryHelper.Core.Models
 {
-    public class Customers
+    public class Customer
     {
         public int Id { get; set; }
         public string Name { get; set; }
