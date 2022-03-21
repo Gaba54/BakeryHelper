@@ -6,7 +6,7 @@ namespace BakeryHelper.Core.RequestAndResponses
     {
         public int Id { get; set; }
         public string Login { get; set; }
-        private string Password { get; set; }
+        public string Password { get; set; }
 
     }
 }
