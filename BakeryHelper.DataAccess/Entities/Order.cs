@@ -8,9 +8,10 @@ namespace BakeryHelper.DataAccess.Entities
 {
     public class Order : EntityBase
     {
-        public string DayOfTheWeek { get; set; } //or int 
-        public List<Product> ProductsFromCustomers { get; set; } //jako lista produktow bedacych na rozpisce
-        public List<Customer> Customers { get; set; }
+        public string DayName { get; set; } 
+        public List<Product> Products { get; set; } 
+        public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
 
     }
 }

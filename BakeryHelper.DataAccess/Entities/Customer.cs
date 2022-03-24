@@ -9,7 +9,9 @@ namespace BakeryHelper.DataAccess.Entities
     public class Customer : EntityBase
     {    
         public string Name { get; set; }
-        public int NIP { get; set; }
-        public List<Product> Products { get; set; }
+        public string NIP { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public List<Order> Orders { get; set; }
     }
 }

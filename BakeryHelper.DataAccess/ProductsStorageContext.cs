@@ -8,7 +8,6 @@ namespace BakeryHelper.DataAccess
         public ProductsStorageContext(DbContextOptions<ProductsStorageContext> opt) : base(opt) { }
 
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
 

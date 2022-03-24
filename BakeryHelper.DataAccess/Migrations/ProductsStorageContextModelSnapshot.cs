@@ -26,18 +26,19 @@ namespace BakeryHelper.DataAccess.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("NIP")
-                        .HasColumnType("int");
+                    b.Property<string>("Login")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NIP")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("OrderId")
-                        .HasColumnType("int");
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("OrderId");
 
                     b.ToTable("Customers");
                 });
@@ -49,10 +50,15 @@ namespace BakeryHelper.DataAccess.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("DayOfTheWeek")
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DayName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("Orders");
                 });
@@ -63,9 +69,6 @@ namespace BakeryHelper.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
-
-                    b.Property<int?>("CustomerId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -78,59 +81,37 @@ namespace BakeryHelper.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomerId");
-
                     b.HasIndex("OrderId");
 
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("BakeryHelper.DataAccess.Entities.User", b =>
+            modelBuilder.Entity("BakeryHelper.DataAccess.Entities.Order", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.HasOne("BakeryHelper.DataAccess.Entities.Customer", "Customer")
+                        .WithMany("Orders")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<string>("Login")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("BakeryHelper.DataAccess.Entities.Customer", b =>
-                {
-                    b.HasOne("BakeryHelper.DataAccess.Entities.Order", null)
-                        .WithMany("Customers")
-                        .HasForeignKey("OrderId");
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("BakeryHelper.DataAccess.Entities.Product", b =>
                 {
-                    b.HasOne("BakeryHelper.DataAccess.Entities.Customer", null)
-                        .WithMany("Products")
-                        .HasForeignKey("CustomerId");
-
                     b.HasOne("BakeryHelper.DataAccess.Entities.Order", null)
-                        .WithMany("ProductsFromCustomers")
+                        .WithMany("Products")
                         .HasForeignKey("OrderId");
                 });
 
             modelBuilder.Entity("BakeryHelper.DataAccess.Entities.Customer", b =>
                 {
-                    b.Navigation("Products");
+                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("BakeryHelper.DataAccess.Entities.Order", b =>
                 {
-                    b.Navigation("Customers");
-
-                    b.Navigation("ProductsFromCustomers");
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }
